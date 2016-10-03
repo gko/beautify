@@ -12,8 +12,11 @@ npm i beautify -g
 beautify [options]:
 
 -h, --help             output usage information
+
 -V, --version          output the version number
+
 -f, --format <format>  input format.(optional)
+
 -o, --output <file>    output file or folder
 
 examles:
