@@ -1,3 +1,5 @@
+![build](https://travis-ci.org/gko/beautify.svg?branch=master)
+
 # Beautify
 Beautify CSS/JS/JSON/HTML/XML formats
 
