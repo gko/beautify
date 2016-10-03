@@ -29,7 +29,7 @@ beautify -o output.html ./test.html
 ```
 
 ```bash
-echo '{"a": 1}' | beautify
+curl -L https://raw.githubusercontent.com/gko/beautify/master/test/mock/test1.json | beautify
 ```
 
 ```bash
