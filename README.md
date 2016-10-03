@@ -23,7 +23,7 @@ beautify [options]:
 
 -o, --output <file>    output file or folder
 
-examles:
+examples:
 ```bash
 beautify -o output.html ./test.html
 ```
