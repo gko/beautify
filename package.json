@@ -1,6 +1,6 @@
 {
   "name": "beautify",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "beautify whatever",
   "author": "Konstantin Gorodinskiy <main@konstantin.io>",
   "bin": "./bin/beautify.js",
