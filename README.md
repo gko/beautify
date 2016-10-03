@@ -15,7 +15,7 @@ beautify [options]:
 
 -V, --version          output the version number
 
--f, --format <format>  input format.(optional) JSON/XML/HTML/JS/CSS
+-f, --format <format>  input format.(optional) json/xml/html/js/css
 
 -o, --output <file>    output file or folder
 
