@@ -6,25 +6,34 @@ const html = require('html').prettyPrint;
 
 let files = [];
 
+let clean = data => {
+    if (~['"', "'"].indexOf(data[0]) &&
+        ~['"', "'"].indexOf(data[data.length - 1]) &&
+        data[0] === data[data.length - 1]
+    ) {
+        return data.substring(1, data.length - 1);
+    }
+
+    return data;
+};
+
 let beautify = (data, o) => {
-    data = data.trim();
+    if (!data || !data.length) return '';
 
-    if(~['"', "'"].indexOf(data[0]))
-        data = data.substring(1);
+    data = clean(data.trim());
 
-    if(~['"', "'"].indexOf(data[data.length - 1]))
-        data = data.substring(0, data.length - 1);
-
-    switch(o.format) {
+    switch (o.format) {
         case 'css':
             return cssbeautify(data, {
                 indent: '    ',
             });
-        case 'json': case 'js':
+        case 'json':
+        case 'js':
             return jsBeautify(data, {
                 indent_size: 4
             });
-        case 'html': case 'xml':
+        case 'html':
+        case 'xml':
             return html(data);
     }
 };

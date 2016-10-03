@@ -15,6 +15,50 @@ app.version(cfg.version)
 
 app.parse(process.argv);
 
+let write = (p, data) => new Promise((res, rej) => {
+    console.log(path.resolve(p));
+    fs.writeFile(path.resolve(p), data, 'utf8', err => {
+        if (err) return rej(err);
+
+        return res();
+    });
+});
+
+let err = err => console.log(err);
+let output = o => {
+    if (!app.output) {
+        console.log(o);
+    } else {
+        fs.lstat(path.resolve(app.output), (err, stat) => {
+            if(!err) {
+                if (stat.isDirectory()) {
+                    Promise.all(app.args.map(f => write(app.output + '/' + path.basename(f), o)))
+                           .catch(err);
+                } else {
+                    // TODO this one still not very clear
+                    write(app.output, o).catch(err);
+                }
+            } else {
+                // if we have many files it's evident 
+                // that user wants to create folder and not rewrite one file
+                // with output
+                if (app.args.length > 1) {
+                    fs.mkdir(path.resolve(app.output), err => {
+                        if (!err) {
+                            Promise.all(app.args.map(f => write(app.output + '/' + path.basename(f), o)))
+                                   .catch(err);
+                        } else {
+                            console.log(err);
+                        }
+                    });
+                } else {
+                    write(app.output, o).catch(err);
+                }
+            }
+        });
+    }
+};
+
 if(app.args.length) {
     fs.readFile(app.args[0], 'utf8', (err, data) => {
         if (err) throw err;
@@ -23,7 +67,7 @@ if(app.args.length) {
             format: (app.format||path.extname(app.args[0]).substring(1)).toLowerCase()
         });
 
-        console.log(b);
+        output(b);
     });
 } else {
     let data = '';
@@ -40,6 +84,6 @@ if(app.args.length) {
             format: app.format.toLowerCase()
         });
 
-        console.log(b);
+        output(b);
     });
 }
