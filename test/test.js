@@ -88,6 +88,11 @@ body {
 </html>`
         );
     });
+    
+    it('should create folder when working with multiple files', function() {
+        exec(`${cmd} -o ./test/test2 ./test/mock/test1.json ./test/mock/test2.json`);
+        assert.deepEqual(fs.readdirSync('./test/test2'), ['test1.json', 'test2.json']);
+    });
 
     it('should update folder contents', function() {
         exec(`${cmd} -o ./test/test2 ./test/mock2/test3.json ./test/mock2/test4.json`);
