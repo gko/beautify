@@ -29,6 +29,14 @@ echo '{"a": 1}' | beautify
 echo 'body{width: "200px"}' | beautify -f css
 ```
 
+You can also use it from node:
+
+```javascript
+const beautify = require('beautify');
+
+beautify(`{"a":1}`, {format: 'json'})
+```
+
 ## Tests
 
 To run tests you simply need to do:
