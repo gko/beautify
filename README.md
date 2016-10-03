@@ -1,6 +1,6 @@
-![build](https://travis-ci.org/gko/beautify.svg?branch=master)
-
 # Beautify
+![build](https://travis-ci.org/gko/beautify.svg?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/57f1c07b9907da004fa9a784/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57f1c07b9907da004fa9a784)
 Beautify CSS/JS/JSON/HTML/XML formats
 
 ## Installation
