@@ -26,6 +26,7 @@ let beautify = (data, o) => {
         case 'css':
             return cssbeautify(data, {
                 indent: '    ',
+                autosemicolon: true
             });
         case 'json':
         case 'js':
