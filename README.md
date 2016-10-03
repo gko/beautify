@@ -3,7 +3,9 @@ Beautify CSS/JS/JSON/HTML/XML formats
 
 ## Installation
 
-`npm i beautify -g`
+```bash
+npm i beautify -g
+```
 
 ## Usage
 
@@ -15,16 +17,24 @@ beautify [options]:
 -o, --output <file>    output file or folder
 
 examles:
-`beautify -o output.html ./test.html`
+```bash
+beautify -o output.html ./test.html
+```
 
-`echo '{"a": 1}' | beautify`
+```bash
+echo '{"a": 1}' | beautify
+```
 
-`echo 'body{width: "200px"}' | beautify -f css`
+```bash
+echo 'body{width: "200px"}' | beautify -f css
+```
 
 ## Tests
 
 To run tests you simply need to do:
-`npm run test`
+```bash
+npm run test
+```
 
 ## License
 
